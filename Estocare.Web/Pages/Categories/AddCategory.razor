@@ -1,0 +1,54 @@
+﻿@page "/add-category"
+@using Estocare.Web.Models.DTOs
+@using Estocare.Web.Services
+@inject CategoryService CategoryService
+
+<h1>Adicionar Nova Categoria</h1>
+
+<div>
+    <label for="categoryName">Nome da Categoria:</label>
+    <input id="categoryName" type="text" @bind="categoryName" class="form-control" />
+</div>
+
+<div style="margin-top: 10px;">
+    <button class="btn btn-primary" @onclick="SaveCategory">Salvar</button>
+</div>
+
+@if (!string.IsNullOrEmpty(alertMessage))
+{
+    <div style="color: @(isSuccess ? "green" : "red"); margin-top: 10px;">
+        @alertMessage
+    </div>
+}
+
+@code {
+    private string categoryName = string.Empty;
+    private string alertMessage = string.Empty;
+    private bool isSuccess = false;
+
+    private async Task SaveCategory()
+    {
+        if (string.IsNullOrWhiteSpace(categoryName) || categoryName.Length < 5)
+        {
+            alertMessage = "O nome da categoria deve ter no mínimo 5 letras.";
+            isSuccess = false;
+            return;
+        }
+
+        try
+        {
+            var newCategory = new CreateCategoryDto { Name = categoryName };
+            await CategoryService.CreateCategoryAsync(newCategory);
+
+            // Limpa o campo e exibe mensagem de sucesso
+            categoryName = string.Empty;
+            alertMessage = "Categoria adicionada com sucesso!";
+            isSuccess = true;
+        }
+        catch (Exception ex)
+        {
+            alertMessage = $"Erro ao adicionar categoria: {ex.Message}";
+            isSuccess = false;
+        }
+    }
+}
