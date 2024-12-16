@@ -1,23 +1,3 @@
-/**
- * Este módulo provê funções para interagir com a API de categorias do sistema Estocare.
- * Aqui, concentramos as operações de CRUD (Create, Read, Update, Delete) em um único local,
- * mantendo a lógica de acesso à API separada da camada de apresentação (componentes e páginas).
- *
- * Benefícios desta abordagem:
- * - Facilita manutenções futuras e mudanças na estrutura da API.
- * - Centraliza tratamento de erros, parse de dados e autenticação.
- * - Facilita testes unitários (mockar fetch aqui é mais simples do que em componentes).
- *
- * Uso:
- *  - Importar as funções em componentes/páginas do Next.js e chamá-las conforme necessário.
- *  - Exemplo: `const categories = await getAllCategories();`
- *
- * Futuras melhorias:
- *  - Implementar autenticação (incluir token no header).
- *  - Adicionar caching (Client-Side) ou utilizar Server Components para SSR/SSG.
- *  - Refinar o tratamento de erros e responses, possivelmente criando uma camada de abstração.
- */
-
 export interface Category {
     /** ID único da categoria */
     id: number;

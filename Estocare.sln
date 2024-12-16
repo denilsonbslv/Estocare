@@ -9,6 +9,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Estocare.Domain", "Estocare
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Estocare.Infrastructure", "Estocare.Infrastructure\Estocare.Infrastructure.csproj", "{1425476C-A46D-4248-BE30-D9F600E93ACF}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "estocare.web", "estocare.web\", "{F8693F8E-7F86-579B-5D59-E605C6F4C7C3}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_64581"
+		Debug.AspNetCompiler.PhysicalPath = "estocare.web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64581\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_64581"
+		Release.AspNetCompiler.PhysicalPath = "estocare.web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64581\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "64581"
+		SlnRelativePath = "estocare.web\"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +48,10 @@ Global
 		{1425476C-A46D-4248-BE30-D9F600E93ACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1425476C-A46D-4248-BE30-D9F600E93ACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1425476C-A46D-4248-BE30-D9F600E93ACF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8693F8E-7F86-579B-5D59-E605C6F4C7C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8693F8E-7F86-579B-5D59-E605C6F4C7C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8693F8E-7F86-579B-5D59-E605C6F4C7C3}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8693F8E-7F86-579B-5D59-E605C6F4C7C3}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

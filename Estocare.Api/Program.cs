@@ -1,5 +1,6 @@
 using Estocare.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +20,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Adicionar serviços necessários
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve; // Tratar referências cíclicas
+        options.JsonSerializerOptions.WriteIndented = true; // Opcional: formatar JSON para melhor visualização
+    });
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

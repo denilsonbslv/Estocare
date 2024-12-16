@@ -1,0 +1,49 @@
+{
+    "version": "0.2.0",
+    "compounds": [
+      {
+        "name": "Run Both (Next.js + .NET API)",
+        "configurations": [
+          "Launch Next.js app",
+          "Launch .NET API"
+        ]
+      }
+    ],
+    "configurations": [
+      {
+        "name": "Launch Next.js app",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "npm",
+        "runtimeArgs": ["run", "dev"],
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal",
+        "skipFiles": ["<node_internals>/**"],
+        "env": {
+          "NODE_ENV": "development"
+        }
+      },
+      {
+        "name": "Launch .NET API",
+        "type": "coreclr",
+        "request": "launch",
+        "preLaunchTask": "build",
+        "program": "${workspaceFolder}/Estocare.Api/bin/Debug/net9.0/Estocare.Api.dll",
+        "args": [],
+        "cwd": "${workspaceFolder}/Estocare.Api",
+        "stopAtEntry": false,
+        "serverReadyAction": {
+          "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+          "uriFormat": "%s",
+          "action": "openExternally"
+        },
+        "env": {
+          "ASPNETCORE_ENVIRONMENT": "Development"
+        },
+        "sourceFileMap": {
+          "/Users/": "/users/"
+        }
+      }
+    ]
+  }
+  
